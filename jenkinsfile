@@ -1,9 +1,9 @@
   node{
   
-  echo "The job name is: ${env.JOB_NAME}"
-  echo "the build number is: ${env.BUILD_NUMBER}"
-  echo "The branch name is: ${env.NODE_NAME}"
-  echo "The jenkins home directory is: ${env.JENKINS_HOME}"
+    echo "The Job Name is: ${env.JOB_NAME}" 
+echo "The Build number is: ${env.BUILD_NUMBER}" 
+echo "The Node is name is: ${env.NODE_NAME}" 
+echo "The Jenkins HD is: ${env.JENKINS_HOME}"   
   
   def mavenHome = tool name: "maven.3.8.6"
     
