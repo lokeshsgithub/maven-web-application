@@ -1,6 +1,8 @@
 @Library('lokisharedlibs') _
 pipeline{
-    agent any
+    agent {
+    label'icicibanknode'
+    }
     
     tools {
         maven 'maven3.9.0'
