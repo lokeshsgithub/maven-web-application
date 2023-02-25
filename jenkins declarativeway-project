@@ -1,7 +1,7 @@
 @Library('lokisharedlibs') _
 pipeline{
     agent {
-    label'icicibanknode'
+    label'jenkinsansiblenode'
     }
     
     tools {
