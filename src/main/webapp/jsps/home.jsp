@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to Mithun Software Solutions. Karnataka,India </h1>
+<h1 align="center">Welcome to Mithun Software Solutions.India </h1>
 <h1 align="center"> Mithun Software Solutions- Very Good Training center for DevOps with AWS in Bangalore India and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
 <hr>
 <br>
@@ -38,8 +38,7 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 		Martha Halli, Above ICICI Bank, Beside Meghana Foods,
 		Bangalore,
 		+91-9980923226
-		devopstrainingblr@gmail.com
-		<br>
+		 <br>
 		<a href="mailto:devopstrainingblr@gmail.com">Mail to Mithun Technologies</a>
 	</span>
 </div>
