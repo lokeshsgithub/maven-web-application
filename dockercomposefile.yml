@@ -1,4 +1,3 @@
-version: '3.5'
 services:
    mavenwebapplication:
      image: lokeshsdockerhub/mavenwebapplication:version
@@ -6,12 +5,7 @@ services:
      - 9090:8080
      networks:
      - mavenwebappbridge
-     volumes:
-     - /home/ubuntu/mavenwebappvol:/usr/local/tomcat/webapps
 networks:
   mavenwebappbridge:
     driver: bridge
-volumes:
-  mavenwebappvol:
-    driver: local
-   
+ 
