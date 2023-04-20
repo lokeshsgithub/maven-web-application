@@ -1,6 +1,7 @@
+version: '3.5'
 services:
    mavenwebapp:
-     image: lokeshsdockerhub/mavenwebapp:version
+     image: lokeshsdockerhub/mavenwebapp:VERSION
      ports:
      - 9090:8080
      networks:
