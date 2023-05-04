@@ -36,6 +36,7 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 	<span style="font-weight: bold;">
 		Mithun Technologies, 
 		 Above ICICI Bank, Beside Meghana Foods,
+		Banglore,
 		+91-9980923226
 		 <br>
 		<a href="mailto:devopstrainingblr@gmail.com">Mail to Mithun Technologies</a>
