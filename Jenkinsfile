@@ -33,10 +33,9 @@ tools{
 
     stage('code quality: sonarqube'){
         steps{
-            withSonarQubeEnv(credentialsId: 'sonarqube-credential')(sonarqube) {
-    
-         }
-            sh "mvn clean sonar:sonar"
+            withSonarQubeEnv(credentialsId: 'sonarqube-credential'){
+            sh "mvn clean package sonar:sonar"
+            }
         }
     }
 }//stages closed
