@@ -30,6 +30,12 @@ tools{
             sh "mvn clean install"
         }
     }
+
+    stage('code quality: sonarqube'){
+        steps{
+            sh "mvn clean sonar:sonar"
+        }
+    }
 }//stages closed
 post{
     success{
