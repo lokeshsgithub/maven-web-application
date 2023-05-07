@@ -45,6 +45,7 @@ tools{
                 waitForQualityGate abortPipeline: true
               }
             }
+    }
 }//stages closed
 post{
     success{
