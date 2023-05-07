@@ -1,3 +1,4 @@
+@Library(lokeshsharedlibs) _
 pipeline {
     agent any
     
@@ -10,5 +11,13 @@ pipeline {
         }
     }
 
+    }//stages closed
+    post{
+        success{
+            sendSlackNotifications(currentBuild.result)
+        }
+        failure{
+            sendSlackNotifications(currentBuild.result)
+        }
     }
-}
+}//pipeline closed
