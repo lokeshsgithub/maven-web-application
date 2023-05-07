@@ -55,5 +55,20 @@ pipeline {
                 sh "mvn clean install"
             }
         }
-    }
-}
+        
+        stage('code quality: sonarqube'){
+            steps{
+                withSonarQubeEnv(credentialsId: 'sonarqube_credentials',installationName: 'sonarqube') {
+                 sh "mvn clean package sonar:sonar"                       
+              }
+            }
+        }
+
+        stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+       
+        
+    }//staged closed
+}//pipeline closed
