@@ -29,6 +29,10 @@ pipeline {
     tools{
         maven 'maven3.9.0'
     }
+    
+    environment {
+        buildNumber = "BUILD_NUMBER"
+    }
 
     stages{
 
@@ -71,7 +75,25 @@ pipeline {
               }
             }
           }
-       
+        
+        stage('Build the docker image'){
+            steps{
+                sh "docker build -t lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER ."
+            }
+        }
+
+        stage('scan the image: Trivy'){
+            steps{
+                sh "trivy image lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER"
+            }
+        }
+
+        stage('Push the image into Registry'){
+            steps{
+                sh "docker push lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER"
+            }
+        }
+        
         
     }//staged closed
 }//pipeline closed
