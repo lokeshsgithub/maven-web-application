@@ -16,7 +16,7 @@ environment {
             git credentialsId: 'github-credentials', url: 'https://github.com/lokeshsgithub/maven-web-application.git'
         }
     }
-
+   /**
     stage('RUn UnitTest: Maven'){
         steps{
             sh "mvn test"
@@ -50,7 +50,7 @@ environment {
               }
             }
     }
-    /**
+    
     stage('Build the Docker image'){
         steps{
             sh "docker build -t lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER ."
