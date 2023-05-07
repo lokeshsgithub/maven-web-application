@@ -50,7 +50,7 @@ environment {
               }
             }
     }
-    
+    /**
     stage('Build the Docker image'){
         steps{
             sh "docker build -t lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER ."
@@ -62,7 +62,7 @@ environment {
             sh "trivy image lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER > scan.txt"
             sh "cat scan.txt"
         }
-    }
+    }**/
 }//stages closed
 post{
     success{
