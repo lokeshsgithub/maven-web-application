@@ -56,6 +56,13 @@ environment {
             sh "docker build -t lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER ."
         }
     }
+
+    stage('Scan the image: Trivy'){
+        steps{
+            sh "trivy image lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER > scan.txt"
+            sh "cat scan.txt"
+        }
+    }
 }//stages closed
 post{
     success{
