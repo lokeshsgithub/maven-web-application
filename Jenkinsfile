@@ -4,6 +4,10 @@ pipeline {
 tools{
     maven 'maven3.9.0'
 }
+environment {
+  buildNumber = "BUILD_NUMBER"
+}
+
     stages{
 
     stage('Checkoutcode'){
@@ -45,6 +49,12 @@ tools{
                 waitForQualityGate abortPipeline: true
               }
             }
+    }
+    
+    stage('Build the Docker image'){
+        steps{
+            sh "docker build -t lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER ."
+        }
     }
 }//stages closed
 post{
