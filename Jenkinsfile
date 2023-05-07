@@ -1,3 +1,4 @@
+/**
 @Library('lokeshsharedlibs') _
 pipeline {
     agent any
@@ -21,3 +22,16 @@ pipeline {
         }
     }
 }//pipeline closed
+**/
+pipeline {
+    agent any
+
+    stages{
+
+        stage('checkout code'){
+            steps{
+                git credentialsId: 'github-credentials', url: 'https://github.com/lokeshsgithub/maven-web-application.git'
+            }
+        }
+    }
+}
