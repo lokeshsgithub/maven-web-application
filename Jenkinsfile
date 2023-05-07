@@ -1,4 +1,4 @@
-@Library(lokeshsharedlibs) _
+@Library('lokeshsharedlibs') _
 pipeline {
     agent any
     
