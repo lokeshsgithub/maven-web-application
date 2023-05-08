@@ -44,7 +44,7 @@ pipeline {
               }
             }
         }
-        /**
+        
         stage("Quality Gate") {
             steps {
               timeout(time: 1, unit: 'HOURS') {
@@ -52,7 +52,7 @@ pipeline {
               }
             }
           }
-        **/
+        
         stage('Build the docker image'){
             steps{
                 sh "docker build -t lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER ."
