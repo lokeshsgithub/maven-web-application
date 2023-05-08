@@ -32,6 +32,7 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
+    NodePort: 30000
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
