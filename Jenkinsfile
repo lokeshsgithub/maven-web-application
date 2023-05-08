@@ -77,13 +77,13 @@ pipeline {
                 sh "sed -i 's/TAG/${BUILD_NUMBER}/g' mavenwebapp.yml"
             }
         }
-        /**
+        
         stage('Deploy the Docker image in a K8s cluster'){
             steps{
                 sh "kubectl apply -f mavenwebapp.yml"
             }
         }
-        **/
+        
         
     }//staged closed
 }//pipeline closed
