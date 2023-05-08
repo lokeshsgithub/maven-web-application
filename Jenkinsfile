@@ -71,7 +71,19 @@ pipeline {
                 sh "docker push lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER"
             }
         }
-        
+
+        stage('Update the image tag: k8sfile'){
+            steps{
+                sh "sed -i 's/VERSION/${BUILD_NUMBER}/g' mavenwebapp.yml"
+            }
+        }
+        /**
+        stage('Deploy the Docker image in a K8s cluster'){
+            steps{
+                sh "kubectl apply -f mavenwebapp.yml"
+            }
+        }
+        **/
         
     }//staged closed
 }//pipeline closed
