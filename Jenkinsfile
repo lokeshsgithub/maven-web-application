@@ -84,7 +84,8 @@ pipeline {
 
         stage('scan the image: Trivy'){
             steps{
-                sh "trivy image lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER"
+                sh "trivy image lokeshsdockerhub/mavenwebapp:$BUILD_NUMBER > scan.txt"
+                sh "cat scan.txt"
             }
         }
 
