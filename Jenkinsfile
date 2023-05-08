@@ -74,7 +74,7 @@ pipeline {
 
         stage('Update the image tag: k8sfile'){
             steps{
-                sh "sed -i 's/VERSION/${BUILD_NUMBER}/g' mavenwebapp.yml"
+                sh "sed -i 's/TAG/${BUILD_NUMBER}/g' mavenwebapp.yml"
             }
         }
         /**
