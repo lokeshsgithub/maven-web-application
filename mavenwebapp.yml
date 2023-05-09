@@ -20,6 +20,14 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - name: mavenwebappvol
+          mountPath: /data/db
+      volumes:
+      - name: mavenwebappvol
+        nfs:
+          server: 172.31.34.88
+          path: /mnt/nfs_share
 ---
 apiVersion: v1
 kind: Service
