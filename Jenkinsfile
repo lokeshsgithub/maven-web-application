@@ -39,7 +39,7 @@ pipeline {
         
         stage('code quality: sonarqube'){
             steps{
-                withSonarQubeEnv(credentialsId: 'sonarqube-credentials',installationName: 'sonarqube') {
+                withSonarQubeEnv(credentialsId: 'sonarquber_pwd',,installationName: 'sonarqube') {
                  sh "mvn clean package sonar:sonar"                       
               }
             }
