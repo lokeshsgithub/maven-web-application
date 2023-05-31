@@ -62,7 +62,7 @@ node{
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: 'mavenwebapp-release',
-        version: "${readPomVersion}"
+        version: "${readPomVersion.version}"
 
     }
 
