@@ -54,7 +54,7 @@ node{
                 classifier: '',
                 file: 'target/maven-web-application.war',
                 type: 'war'
-                   ]
+            ]
        ],
         credentialsId: 'Nexus_crd',
         groupId: 'com.mt',
@@ -62,7 +62,7 @@ node{
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: 'mavenwebapp-snapshot',
-        version: "${readMavenPomversion }"
+        version: "${readMavenPomversion}"
 
     }
 
