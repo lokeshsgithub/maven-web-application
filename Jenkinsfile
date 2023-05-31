@@ -46,22 +46,23 @@ node{
     stage('nexus artifact uploader'){
 
         def readMavenPomversion = readMavenPom file: 'pom.xml'
-
+        
+        def nexusRepo = readMavenPom.version.endsWith("SNAPSHOT") ? "mavenwebapp-Snapshot" : "mavenwebapp-release"
+           
         nexusArtifactUploader artifacts:
          [
             [
                 artifactId: 'maven-web-application',
-                classifier: '',
-                file: 'target/maven-web-application.war',
+                classifier: '', file: 'target/maven-web-application.war',
                 type: 'war'
-            ]
+                 ]
        ],
         credentialsId: 'Nexus_crd',
         groupId: 'com.mt',
         nexusUrl: '13.127.243.212:8081',
         nexusVersion: 'nexus3',
         protocol: 'http',
-        repository: 'mavenwebapp-snapshot',
+        repository: "${nexusRepo}",
         version: "${readMavenPomversion}"
 
     }
