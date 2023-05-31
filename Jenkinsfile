@@ -42,18 +42,19 @@ node{
          [
             [
                 artifactId: 'maven-web-application',
-                 classifier: '',
-                  file: 'target/maven-web-application.war',
-                   type: 'war'
+                classifier: '',
+                file: 'target/maven-web-application.war',
+                type: 'war'
                    ]
-                   ],
-                    credentialsId: 'Nexus_crd',
-                     groupId: 'com.mt',
-                      nexusUrl: '13.127.243.212:8081',
-                       nexusVersion: 'nexus2',
-                        protocol: 'http',
-                         repository: 'mavenwebapp-snapshot',
-                          version: '1.0.0'
+       ],
+        credentialsId: 'Nexus_crd',
+        groupId: 'com.mt',
+        nexusUrl: '13.127.243.212:8081',
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        repository: 'mavenwebapp-snapshot',
+        version: '1.0.0'
+
     }
     
     stage ('Send Email') {
