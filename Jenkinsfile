@@ -68,6 +68,8 @@ node{
             sh "ssh -o stricthostkeychecking=no ec2-user@172.31.46.243: /opt/apache-tomcat-9.0.75/webapps/*.war"
     }
     
+    }
+
     stage ('Send Email') {
         echo "Mail Stage";
 
