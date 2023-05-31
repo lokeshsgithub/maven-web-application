@@ -1,5 +1,7 @@
 node{
 
+   def mavenTool = tool 'maven.3.9.2'
+
     stage('checkout code'){
 
         git credentialsId: 'Jenkins_Github_crd', url: 'https://github.com/lokeshsgithub/maven-web-application.git'
@@ -7,24 +9,25 @@ node{
 
     stage('UNIT testing'){
 
-        sh "mvn test"
+      sh "${mavenTool}/bin/mvn test"
+    
     }
 
     stage('INTEGRATION testing'){
 
-        sh "mvn verify -DskipUnitTests"
+        sh "${mavenTool}/bin/mvn verify -DskipUnitTests"
     }
 
     stage('Maven Build'){
 
-        sh "mvn clean install"
+        sh "${mavenTool}/bin/mvn clean install"
     }
 
     stage('static code analysis'){
 
         withSonarQubeEnv(credentialsId: 'sonarqube_cred') {
 
-        sh "mvn clean package sonar:sonar"
+        sh "${mavenTool}/bin/mvn clean package sonar:sonar"
        }
     }
 
