@@ -61,8 +61,8 @@ node{
         nexusUrl: '13.127.243.212:8081',
         nexusVersion: 'nexus3',
         protocol: 'http',
-        repository: 'mavenwebapp-release'
-        version: "${readPomVersion.version}"
+        repository: 'mavenwebapp-release',
+        version: "${readPomVersion}"
 
     }
 
