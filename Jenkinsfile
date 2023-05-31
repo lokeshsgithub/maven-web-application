@@ -36,17 +36,10 @@ node{
         waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_cred'
     }
     
-    post {
-            always{
-                archiveArtifacts artifacts: '*.csv', onlyIfSuccessful: true
-                
-                emailext to: "lokeshreddy4590@gmail.com",
-                subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}",
-                attachmentsPattern: '*.csv'
-                
-            cleanWs()
-            }
+    post{
+        always{
+            emailext body: 'Jenkins CI&CD', recipientProviders: [buildUser(), developers()], subject: 'Project ', to: 'lokeshreddy4590@gmail.com'
         }
+    }
 
 }
