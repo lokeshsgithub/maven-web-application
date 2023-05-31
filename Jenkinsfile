@@ -47,7 +47,7 @@ node{
 
         def readPomversion = readMavenPom file: 'pom.xml'
         
-        def nexusRepo = readPomersion.version.endsWith("SNAPSHOT") ? "mavenwebapp-Snapshot" : "mavenwebapp-release"
+        def nexusRepo = readPomversion.version.endsWith("SNAPSHOT") ? "mavenwebapp-Snapshot" : "mavenwebapp-release"
         
         nexusArtifactUploader artifacts:
          [
