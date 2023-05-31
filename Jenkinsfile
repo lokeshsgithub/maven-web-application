@@ -45,7 +45,7 @@ node{
 
     stage('nexus artifact uploader'){
 
-        def readMavenPomversion = readMavenPom file: 'pom.xml'
+        def readMavenPom.version = readMavenPom file: 'pom.xml'
         
         def nexusRepo = readMavenPom.version.endsWith("SNAPSHOT") ? "mavenwebapp-Snapshot" : "mavenwebapp-release"
            
@@ -63,7 +63,7 @@ node{
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: "${nexusRepo}",
-        version: "${readMavenPomversion}"
+        version: "${readMavenPom.version}"
 
     }
 
