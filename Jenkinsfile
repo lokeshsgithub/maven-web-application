@@ -1,6 +1,6 @@
 node{
 
-   def mavenTool = tool 'maven.3.9.2'
+   def mavenTool = tool 'maven3.9.2'
 
     stage('checkout code'){
 
