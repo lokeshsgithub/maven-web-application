@@ -65,7 +65,7 @@ node{
 
     stage('Deploy the application in tomcat server'){
         sshagent(['sshagent_auth']) {
-            sh "ssh -o stricthostkeychecking=no */*.war ec2-user@13.234.202.196:/opt/apache-tomcat-9.0.75/webapps/"
+            sh "scp -o StrictHostKeyChecking=no */*.war ec2-user@13.234.202.196:/opt/apache-tomcat-9.0.75/webapps"
     }
     
     }
