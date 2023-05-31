@@ -33,6 +33,7 @@ node{
 
     stage('Quality Gate'){
 
+
         waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_cred'
               timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
@@ -43,6 +44,8 @@ node{
     }
 
     stage('nexus artifact uploader'){
+
+        def nexusRepo = readMavenPom.version : 'pom.xml'
 
         nexusArtifactUploader artifacts:
          [
@@ -59,7 +62,7 @@ node{
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: 'mavenwebapp-snapshot',
-        version: '1.1.0'
+        version: '${nexusRepo}'
 
     }
 
