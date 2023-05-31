@@ -62,7 +62,7 @@ node{
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: 'mavenwebapp-snapshot',
-        version: '${nexusRepo}'
+        version: "${nexusRepo}"
 
     }
 
