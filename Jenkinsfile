@@ -25,7 +25,7 @@ node{
 
     stage('static code analysis'){
 
-        withSonarQubeEnv(credentialsId: 'sonarqube_cred') {
+        withSonarQubeEnv(credentialsId: 'sonar_auth') {
 
         sh "${mavenTool}/bin/mvn clean package sonar:sonar"
        }
@@ -34,7 +34,7 @@ node{
     stage('Quality Gate'){
 
 
-        waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube_cred'
+        waitForQualityGate abortPipeline: false, credentialsId: 'sonar_auth'
               timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
               if (qg.status != 'OK') {
@@ -59,7 +59,7 @@ node{
        ],
         credentialsId: 'Nexus_crd',
         groupId: 'com.mt',
-        nexusUrl: '13.127.243.212:8081',
+        nexusUrl: '13.127.59.129:8081',
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: nexusRepo,
@@ -68,8 +68,8 @@ node{
     }
 
     stage('Deploy the application in tomcat server'){
-        sshagent(['sshagent_auth']) {
-            sh "scp -o StrictHostKeyChecking=no */*.war ec2-user@13.234.202.196:/opt/apache-tomcat-9.0.75/webapps"
+        sshagent(['Tomcat_pwd']) {
+            sh "scp -o StrictHostKeyChecking=no */*.war ec2-user@13.127.19.58:/opt/apache-tomcat-9.0.75/webapps"
     }
     
     }
